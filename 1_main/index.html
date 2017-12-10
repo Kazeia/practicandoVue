@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1</title>
+</head>
+<body>
+    <main>
+        <h1>{{texto}}</h1>
+        <h1 v-text="texto"></h1>
+
+        SIN VALUE EN ARRAY
+        <ul>
+            <li v-for="(item,index) in fruta">
+                <h4>{{index}}: {{item.nombre}} {{item.precio}}</h4>
+            </li>
+        </ul>
+
+CON VALUE EN OBJETO
+        <ul>
+                <li v-for="(value,key,index) in superfruta">
+                    <h4>{{index}}: {{key}}: {{value}}</h4>
+                </li>
+            </ul>
+
+        <pre>
+            {{$data | json}}
+        </pre>
+
+        <script src="../vue.js"></script>
+        <script src="./app.js"></script>
+    </main> 
+</body>
+</html>

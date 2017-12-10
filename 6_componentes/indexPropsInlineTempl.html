@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <main>
+        <lusho :obj="fruta" inline-template>
+            <div>
+                <h1>Hola {{name}}</h1>
+                <h2>fruta: {{obj.nombre}}</h2>
+                <button v-on:click="lanza()">lanza</button>
+            </div>
+        </lusho>
+    </main>
+    <script src="../vue.js"></script>
+    <script>
+        //Esto es general para todas las instancias, supongo q igual ocurrira con data, methods, computed, etc.
+        // Vue.component('lusho',{
+        //     template: `
+        //     <h1>Componente Pelicula</h1>
+        //     `
+        // });
+
+        new Vue({
+            el: "main",
+            data: {
+                fruta:{
+                    nombre: "manzana",peso: 232,carac: "lel"
+                }
+            },
+            components: {
+                lusho: {
+                    // template: `
+        
+                    // `,
+                    props: ['obj']
+                    ,
+                    data(){
+                        return{
+                            name: "lusho"
+                        }
+                    },
+                    methods: {
+                        lanza(){
+                            alert("lushooo");
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

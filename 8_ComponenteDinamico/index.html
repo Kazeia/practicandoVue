@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <main>
+        <button v-on:click="cambiar('comp')">Comp</button>
+        <button v-on:click="cambiar('newComp')">newComp</button>
+        <span :is="elegido"></span>
+    </main>
+    
+    <script src="../vue.js"></script>
+    <script>
+        //Vue Componente
+        Vue.component('comp',{
+            template: `
+            <h1>soy comp </h1> 
+            `
+        });
+        Vue.component('newComp',{
+            template: `
+            <h2>rikolino</h2>
+            `
+        });
+
+        //Vue Principal
+        new Vue({
+            el: "main",
+            data: {
+                elegido: "newComp"
+            },
+            methods: {
+                cambiar(co){
+                    this.elegido=co;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

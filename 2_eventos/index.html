@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <ul>
+            <li v-if="peliculas" v-for="(item,index) in peliculas">
+                {{item}} {{index}}
+                <button v-on:click="eliminar(index)">Eliminar</button>
+            </li>
+        </ul>
+        
+        <form v-on:submit.prevent="enviar()">
+            <input type="text" v-model="pel">
+            <input type="submit" value="enviar">
+        </form>
+
+        {{$data}}
+    </main>
+
+    <script src="../vue.js"></script>
+    <script>
+        new Vue({
+            el: "main",
+            data: {
+                pel: "",
+                peliculas:[
+                    
+                ]
+            },
+            methods:{
+                enviar(){
+                    this.peliculas.push(this.pel);
+                    this.pel=""
+                },
+                eliminar(index){
+                    this.peliculas.splice(index,1)
+                }
+            }
+        });
+    </script>
+</body>
+</html>

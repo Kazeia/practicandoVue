@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <main>
+<button v-on:click="obtener()">daleeeeeeee</button>
+<ul>
+    <li v-if="objetos" v-for="item in objetos">
+        <h3>NUEVO</h3>
+        <h5>{{item.body}}</h5>
+        <h5>{{item.id}}</h5>
+        <h5>{{item.title}}</h5>
+        <h5>{{item.userid}}</h5>
+    </li>
+</ul>
+    </main>
+    
+    <script src="../vue.js"></script>
+    <script>
+        new Vue({
+            el: "main",
+            data: {
+                objetos: [
+
+                ]
+            },
+            methods: {
+                obtener(){
+                    fetch("https://jsonplaceholder.typicode.com/posts",{
+                        method: "GET",
+                        headers: new Headers(),
+                    }).then((res) => res.json())
+                    .then((data) => this.objetos=data)
+                    .catch((err) => console.log(err))       
+                }
+            }
+        });
+
+        //https://scotch.io/@Amaz/how-to-use-fetch-api-to-get-and-post-data
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <!-- <hijo></hijo> -->
+        <padre></padre>
+    </main>
+    
+    <script src="../vue.js"></script>
+    <script>
+        Vue.component('padre',{
+            template: `
+            <div>
+                <h1>Padre</h1>
+                <hijo></hijo>
+            </div>
+            `
+        });
+
+        Vue.component('hijo',{
+            template: `
+            <div>
+                <p style="background: yellow">HIJOOO</p>
+            </div>
+            `
+        });
+
+        new Vue({
+            el: "main",
+            data: {
+
+            }
+        });
+    </script>
+</body>
+</html>
